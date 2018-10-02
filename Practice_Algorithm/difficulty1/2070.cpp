@@ -27,8 +27,8 @@ int main() {
 	while( i < totalNum ) {
 
 		int numArr[2] = { 0 };
-		for( int i = 0 ; i < 2 ; i++ ) {
-			scanf("%d" , &numArr[i] ) ;
+		for( int j = 0 ; j < 2 ; j++ ) {
+			scanf("%d" , &numArr[j] ) ;
 		}
 
 		printf( "#%d " , ( i + 1 ) ) ;
