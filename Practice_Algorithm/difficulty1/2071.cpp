@@ -1,6 +1,6 @@
 /*
-2072. 홀수만 더하기
-https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5QSEhaA5sDFAUq&categoryId=AV5QSEhaA5sDFAUq&categoryType=CODE
+2071. 평균값 구하기
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5QRnJqA5cDFAUq&categoryId=AV5QRnJqA5cDFAUq&categoryType=CODE
 
 < input >
 3
@@ -9,10 +9,10 @@ https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5
 6 63 2 3 58 76 21 33 8 1   
 
 < output >
-#1 200
-#2 208
-#3 121
-
+#1 24
+#2 29
+#3 27
+ 
 */
 #include<iostream>
 #include<stdio.h>
@@ -21,7 +21,6 @@ using namespace std ;
 int main() {
 
 	int totalNum = 0 ;
-
 	scanf( "%d" , &totalNum ) ;
 
 	int i = 0 ;
@@ -29,17 +28,19 @@ int main() {
 
 		int sum = 0 ;
 		for( int i = 0 ; i < 10 ; i++ ) {
-
 			int num = 0 ;
 			scanf( "%d" , &num ) ;
-
-			if( num % 2 == 1 )
-				sum += num ;
+			sum += num ;
 		}
 
-		printf( "#%d %d\n" , ( i + 1 ) , sum ) ;
+		double tmpResult = sum / 10.0 ;
+		
+		printf( "#%d %0.f\n" , ( i + 1 ) , tmpResult ) ;
+
 		i++ ;
 	}
 
 	return 0 ;
 }
+
+
