@@ -40,8 +40,10 @@ int main() {
 	int inputNum = 0 ;
 	scanf("%d" , &inputNum ) ;
 
-	int arr[5] = { 2 , 3 , 5 , 7 , 11 } ;
-	vector<int> prime( arr , arr + 5 ) ;
+	// int arr[5] = { 2 , 3 , 5 , 7 , 11 } ;
+	// vector<int> prime( arr , arr + 5 ) ;
+	vector<int> vect{ 10, 20, 30 };
+	vector<int> prime{ 2 , 3 , 5 , 7 , 11 } ;
 
 	int i = 0 ;
 	while( i < inputNum ) {
