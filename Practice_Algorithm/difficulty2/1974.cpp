@@ -31,188 +31,72 @@ https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId
 #include<algorithm>
 using namespace std ;
 
-int arr[9][9] ;
-
-int main() {
-
-	int totalNum = 0 ;
-	cin >> totalNum ;
-
-	int i = 0 ;
-	while( i < totalNum ) { 
-
-		for( int j = 0 ; j < 9 ; j++ ) {
-			for( int k = 0 ; k < 9 ; k++ )
-				cin >> arr[j][k] ;
-		}
-
-		int answerArr[9] = { 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 } ;
-		vector<int> answerVec( answerArr , answerArr + 9 ) ;
-
-		vector<int> A ;
-		vector<int> B ;
-
-		vector<int> vec1 ;
-		vector<int> vec2 ;
-		vector<int> vec3 ;
-		vector<int> vec4 ;
-		vector<int> vec5;
-		vector<int> vec6 ;
-		vector<int> vec7 ;
-		vector<int> vec8 ;
-		vector<int> vec9 ;
-
-		vector<vector<int>> asdf = { vec1 , vec2 , vec3 , vec4 , vec5 , vec6 , vec7 , vec8 , vec9 } ;
-
-		int flag = 0 ;
-
-		for( int j = 0 ; j < 9 ; j++ ) {
-			A.clear() ;
-			for( int k = 0 ; k < 9 ; k++ )
-				A.push_back( arr[j][k] ) ;
-
-			sort( A.begin() , A.end() ) ;
-			if( A != answerVec ) {
-				flag = -1 ;
-				break ;
-			}
-		}
-
-		if( flag != -1 ) {
-
-			for( int k = 0 ; k < 9 ; k++ ) {
-				B.clear() ;
-				for( int j = 0 ; j < 9 ; j++ )
-					B.push_back( arr[j][k] ) ;
-
-				sort( B.begin() , B.end() ) ;
-				if( B != answerVec ) {
-					flag = -1 ;
-					break ;
-				}
-			}
-		}
-
-		if( flag != -1 ) {
-
-			for( int j = 0 ; j < 9 ; j++ ) {
-				for( int k = 0 ; k < 9 ; k++ ) {
-
-					int a = j / 3 ;
-					switch( a ) {
-						case 0 : {
-							int b = k / 3 ;
-							switch( b ) {
-								case 0 : {
-									vec1.push_back( arr[j][k] ) ; break ;
-								}
-								case 1 : {
-									vec2.push_back( arr[j][k] ) ; break ;
-								}
-								case 2 : {
-									vec3.push_back( arr[j][k] ) ; break ;
-								}
-								default :
-									break ;
-							}
-							break ;
-						}
-						case 1 : {
-							int b = k / 3 ;
-							switch( b ) {
-								case 0 : {
-									vec4.push_back( arr[j][k] ) ; break ;
-								}
-								case 1 : {
-									vec5.push_back( arr[j][k] ) ; break ;
-								}
-								case 2 : {
-									vec6.push_back( arr[j][k] ) ; break ;
-								}
-								default :
-									break ;
-							}
-							break ;
-						}
-						case 2 : {
-							int b = k / 3 ;
-							switch( b ) {
-								case 0 : {
-									vec7.push_back( arr[j][k] ) ; break ;
-								}
-								case 1 : {
-									vec8.push_back( arr[j][k] ) ; break ;
-								}
-								case 2 : {
-									vec9.push_back( arr[j][k] ) ; break ;
-								}
-								default :
-									break ;
-							}
-							break ;
-						}
-						default :
-							break ;
-					}
-				}
-			}
-		}
-
-		sort( vec1.begin() , vec1.end() ) ;
-		sort( vec2.begin() , vec2.end() ) ;
-		sort( vec3.begin() , vec3.end() ) ;
-		sort( vec4.begin() , vec4.end() ) ;
-		sort( vec5.begin() , vec5.end() ) ;
-		sort( vec6.begin() , vec6.end() ) ;
-		sort( vec7.begin() , vec7.end() ) ;
-		sort( vec8.begin() , vec8.end() ) ;
-		sort( vec9.begin() , vec9.end() ) ;
-
-		if( vec1 != answerVec )
-			flag = -1 ;
-		if( vec2 != answerVec )
-			flag = -1 ;
-		if( vec3 != answerVec )
-			flag = -1 ;
-		if( vec4 != answerVec )
-			flag = -1 ;
-		if( vec5 != answerVec )
-			flag = -1 ;
-		if( vec6 != answerVec )
-			flag = -1 ;
-		if( vec7 != answerVec )
-			flag = -1 ;
-		if( vec8 != answerVec )
-			flag = -1 ;
-		if( vec9 != answerVec )
-			flag = -1 ;
-
-
-		cout << "#" << ( i + 1 ) << " " ;
-		if( flag != -1 )
-			cout << 1 << endl ;
-		else
-			cout << 0 << endl ;
-
-		vec1.clear() ;
-		vec2.clear() ;
-		vec3.clear() ;
-		vec4.clear() ;
-		vec5.clear() ;
-		vec6.clear() ;
-		vec7.clear() ;
-		vec8.clear() ;
-		vec9.clear() ;
-
-		i++ ;
-	}
-
-	return 0 ;
+int a[9][9];
+double ch[10];
+ 
+int search() {
+    int num;
+    //가로검사
+    for (int i = 0; i < 9; i++) {
+        memset(ch, false, sizeof(ch));
+        for (int j = 0; j < 9; j++) {
+            num = a[i][j];
+            if (ch[num]) {
+                return 0;
+            }
+            else {
+                ch[num] = true;
+            }
+        }
+    }
+    //세로검사
+    for (int j = 0; j < 9; j++) {
+        memset(ch, false, sizeof(ch));
+        for (int i = 0; i < 9; i++) {
+            num = a[i][j];
+            if (ch[num]) {
+                return 0;
+            }
+            else {
+                ch[num] = true;
+            }
+        }
+    }
+    //사각형 검사
+    for (int stx = 0; stx < 9; stx += 3) {
+        for (int sty = 0; sty < 9; sty += 3) {
+            memset(ch, false, sizeof(ch));
+            for (int i = stx; i < stx + 2; i++) {
+                for (int j = sty; j < sty + 2; j++) {
+                    num = a[i][j];
+                    if (ch[num]) {
+                        return 0;
+                    }
+                    else {
+                        ch[num] = true;
+                    }
+                }
+            }
+        }
+    }
+    return 1;
 }
-
-
-
-
+ 
+ 
+int main()
+{   
+    int T;
+    cin >> T;
+    for (int t = 1; t <= T; t++) {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                scanf("%d", &a[i][j]);
+            }
+        }
+        printf("#%d %d\n", t, search());
+    }
+    return 0;
+}
 
 
 
