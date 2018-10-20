@@ -55,6 +55,7 @@ int main() {
 				scanf("%d" , &arr[j][k] ) ;
 
 		vector<int> vecSum ;
+		int maxValue = 0 ;
 
 		for( int j = 0 ; j <= N - M ; j++ ) {
 			for( int k = 0 ; k <= N - M ; k++ ) {
@@ -64,13 +65,11 @@ int main() {
 					for( int b = k ; b < k + M ; b++ )
 						sum += arr[a][b] ;
 				}
-				vecSum.push_back( sum ) ;
+				maxValue = max( maxValue , sum ) ;
 			}
 		}
-
-		int max = *max_element( vecSum.begin() , vecSum.end() ) ;
-
-		printf("#%d %d\n" , ( i + 1 ) , max ) ;
+		
+		printf("#%d %d\n" , ( i + 1 ) , maxValue ) ;
 		i++ ;
 	}
 
