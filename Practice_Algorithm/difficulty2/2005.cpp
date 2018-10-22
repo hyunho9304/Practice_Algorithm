@@ -16,8 +16,6 @@ https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5
 1 3 3 1
 
 */
-
-
 #include<iostream>
 #include<vector>
 #include<cstdio>
