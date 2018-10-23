@@ -1,17 +1,20 @@
 /*
-1284. 수도 요금 경쟁
-https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV189xUaI8UCFAZN&categoryId=AV189xUaI8UCFAZN&categoryType=CODE
+1984. 중간 평균값 구하기
+https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5Pw_-KAdcDFAUq&categoryId=AV5Pw_-KAdcDFAUq&categoryType=CODE
 
 < input >
-2
-9 100 20 3 10
-8 300 100 10 250
+3      
+3 17 1 39 8 41 2 32 99 2 
+22 8 5 123 7 2 63 7 3 46 
+6 63 2 3 58 76 21 33 8 1   
+   
+ 
  
 
 < output >
-#1 90
-#2 1800
- 
+#1 18
+#2 20
+#3 24
  
 */
 
@@ -19,47 +22,50 @@ https://www.swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId
 #include<iostream>
 #include<vector>
 #include<cstdio>
+#include<cstdlib>
 #include<cstring>
+#include<cmath>
+#include<algorithm>
 using namespace std ;
 
 int main() {
 
-	int totalNum = 0 ;
-	scanf("%d" , &totalNum ) ;
+	int testSize = 0 ;
+	scanf("%d" , &testSize ) ;
 
-	int i = 0 ;
-	while( i < totalNum ) {
+	int T = 0 ;
+	while( T < testSize ) {
 
-		int P , Q , R , S , W = 0 ;
-		scanf("%d" , &P ) ;
-		scanf("%d" , &Q ) ;
-		scanf("%d" , &R ) ;
-		scanf("%d" , &S ) ;
-		scanf("%d" , &W ) ;
+		int arr[10] ;
+		for( int i = 0 ; i < 10 ; i++ )
+			scanf("%d" , &arr[i] ) ;
 
-		int A , B = 0 ;
+		sort( arr , arr + 10 ) ;
 
-		A = W * P ;
+		int sum = 0 ;
+		for( int i = 1 ; i < 9 ; i++ )
+			sum += arr[i] ;
 
-		if( W <= R )	// 기본요금
-			B = Q ;
-		else
-			B = Q + ( ( W - R ) * S ) ;
+		double result = double( sum / 8.0 ) ;
 
-		int result = 0 ;
-		if( A > B )
-			result = B ;
-		else
-			result = A ;
+		printf("#%d %0.f\n" , ( T + 1 ) , result ) ;
 
-		printf("#%d %d\n" , ( i + 1 ) , result ) ;
-
-		i++ ;
+		T++ ;
 	}
 
 	return 0 ;
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
