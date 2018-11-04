@@ -1,7 +1,6 @@
 /*
 1230. [S/W 문제해결 기본] 8일차 - 암호문3 
 https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14zIwqAHwCFAYD&categoryId=AV14zIwqAHwCFAYD&categoryType=CODE
-
  */
 
 
