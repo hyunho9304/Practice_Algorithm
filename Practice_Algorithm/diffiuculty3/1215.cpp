@@ -3,7 +3,6 @@
  https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV14QpAaAAwCFAYi&categoryId=AV14QpAaAAwCFAYi&categoryType=CODE#
  */
 
-
 #include<iostream>
 #include<vector>
 #include<cstdio>
